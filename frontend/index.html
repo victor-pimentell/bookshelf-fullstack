@@ -12,7 +12,10 @@
             <h1>Bookshelf</h1>
         </div>
         <div class="search-bar">
-            <input type="text" placeholder="Search">
+            <input type="text" id="inputField" placeholder="Search">
+        </div>
+        <div class="button">
+            <button>READ</button>
         </div>
         <div class="profile-pic">
             <img src="imgs/png-transparent-computer-icons-profile-s-free-angle-sphere-profile-cliparts-free.png" alt="">
@@ -23,43 +26,10 @@
         <div class="container">
             <div class="box">
                 <div class="img">
-                    <img src="imgs/coverTest1.png" alt="">
+                    <img src="imgs/coverTest1.png" id="img1" alt="">
                 </div>
-                <div class="text">
-                    <h3>Harry Potter</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae neque laudantium.
-                    </p>
-                </div>
-                <div class="button">
-                    <button>READ</button>
-                </div>
-            </div>
-
-            <div class="box">
-                <div class="img">
-                    <img src="imgs/coverTest2.png" alt="">
-                </div>
-                <div class="text">
-                    <h3>The Fellowship of the Ring</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae neque laudantium.
-                    </p>
-                </div>
-                <div class="button">
-                    <button>READ</button>
-                </div>
-            </div>
-
-            <div class="box">
-                <div class="img">
-                    <img src="imgs/coverTest3.png" alt="">
-                </div>
-                <div class="text">
-                    <h3>Duna</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae neque laudantium.
-                    </p>
+                <div class="text" id="txt1">
+                    <h3  id="title1">Harry Potter</h3>
                 </div>
                 <div class="button">
                     <button>READ</button>
@@ -67,5 +37,7 @@
             </div>
         </div>
     </main>
+
+    <script src="javascript/app.js"></script>
 </body>
 </html>
