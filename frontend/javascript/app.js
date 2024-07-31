@@ -4,6 +4,7 @@ document.getElementById('inputField').addEventListener('keydown', function(event
         let bookData = search(inputValue);
 
         if (bookData != null) {
+            clearContainer();
             bookData.then((data) => updateCard(data));
         } else {
             console.log('book not found!');
@@ -12,7 +13,7 @@ document.getElementById('inputField').addEventListener('keydown', function(event
 });
 
 async function search(name) {
-    let url = `https://www.googleapis.com/books/v1/volumes?q=${name}&maxResults=1`;
+    let url = `https://www.googleapis.com/books/v1/volumes?q=${name}&maxResults=10`;
     try {
         let response = await fetch(url);
         let data = await response.json();
@@ -28,16 +29,14 @@ async function search(name) {
 }
 
 function updateCard(book) {
-    let bookTitle = document.getElementById('title1');
-    let bookCover = document.getElementById('img1');
-    let bookId = book.items[0].id;
-
-    bookTitle.innerHTML = book.items[0].volumeInfo.title;
-
-    bookCover.src = `https://books.google.com/books/content?id=${bookId}&printsec=frontcover&img=1&zoom=4&edge=curl&source=gbs_api`;
+    for (let i = 0; i < book.items.length; i++) {
+        createCard(book.items[i]);
+    }
 }
 
-function createCard() {
+function createCard(book) {
+    let bookId = book.id;
+
     const box = document.createElement('div');
     box.classList.add('box');
 
@@ -45,14 +44,33 @@ function createCard() {
     imgDiv.classList.add('img');
 
     const img = document.createElement('img');
-    img.src = 'imgs/coverTest2.png';
-    img.id = 'img1';
+    img.src = `https://books.google.com/books/content?id=${bookId}&printsec=frontcover&img=1&zoom=4&edge=curl&source=gbs_api`;
     imgDiv.appendChild(img);
 
     const textDiv = document.createElement('div');
     textDiv.classList.add('text');
-    textDiv.id = 'txt1';
 
     const h3 = document.createElement('h3');
-    
+    h3.textContent = book.volumeInfo.title;
+    textDiv.appendChild(h3);
+
+    const buttonDiv = document.createElement('div');
+    buttonDiv.classList.add('button');
+
+    const button = document.createElement('button');
+    button.textContent = 'READ';
+    buttonDiv.appendChild(button);
+
+    box.appendChild(imgDiv);
+    box.appendChild(textDiv);
+    box.appendChild(buttonDiv);
+
+    document.getElementById('container').appendChild(box);
+}
+
+function clearContainer() {
+    const container = document.getElementById('container');
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
 }
