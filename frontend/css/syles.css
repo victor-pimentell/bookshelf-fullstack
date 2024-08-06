@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto&display=swap');
+
+:root {
+    --font-name-site: 'Roboto', Arial, Helvetica, sans-serif;
+    --font-content: "Inter", Arial, Helvetica, sans-serif;
+    --font-data-color: #767676;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0px 5% 0px 5%;
+    padding: 5px;
+    background-color: #eaeaea;
+}
+
+.header-container {
+    display: flex;
+    width: 100%;
+    height: 60px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.name-wrapper {
+    display: flex;
+    width: 20%;
+    justify-content: center;
+    align-items: center;
+}
+
+#icon-site {
+    width: 1.7vw;
+    height: 1.7vw;
+} 
+
+.name-wrapper h1 {
+    font-family: var(--font-name-site);
+    text-align: center;
+    font-size: 2vw;
+}
+
+.search-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 90%;
+    background-color: #FFFF;
+    border-radius: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.input-container {
+    width: 92%;
+    height: 74%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f2f4f8;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    padding-left: 15px;
+}
+  
+.input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 0.9em;
+    background-color: #f2f4f8;
+    caret-color: rgb(255, 81, 0);
+}
+  
+.label-for-search {
+    cursor: text;
+    padding: 0px 12px;
+}
+  
+.search-icon {
+    width: 13px;
+}
+  
+.border {
+    height: 40%;
+    width: 1.3px;
+    background-color: rgb(223, 223, 223);
+}
+  
+.search-icon path {
+    fill: rgb(114, 114, 114);
+}
+
+.avatar-wrapper {
+    width: 10%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#avatar {
+    width: 50px;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.main-content-container {
+    display: flex;
+    background-color: #FFFF;
+    align-items: center;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 8px;
+
+    gap: 20px;
+}
+
+.cover-wrapper {
+    display: flex;
+}
+
+#book-cover {
+    border-radius: 20px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.253);
+    width: 100%;
+}
+
+.book-content-wrapper {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+#title {
+    font-family: var(--font-content);
+    padding-bottom: 10px;
+}
+
+#description {
+    font-family: var(--font-content);
+    color: var(--font-data-color);
+    padding-top: 10px;
+}
+
+.side-content-container {
+    display: flex;
+    width: 100%;
+    gap: 8px;
+}
+
+.data-content-container {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    gap: 12px;
+    font-family: var(--font-content);
+    background-color: #ffff;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 8px;
+}
+
+.data-content-container ul {
+    list-style-type: none;
+}
+
+.data {
+    color: var(--font-data-color);
+}
+
+.more-books-container {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+}
+
+.sequels-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #ffff;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 8px;
+}
+
+.sequels-container h3 {
+    font-family: var(--font-content);
+    font-weight: 500;
+}
+
+.same-author-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #ffff;
+    margin-top: 8px;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.same-author-container h3 {
+    font-family: var(--font-content);
+    font-weight: 500;
+}
+
+.list-cover-container {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.list-cover-container img {
+    border-radius: 20px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.253);
+    width: 15%;
+}
+
+

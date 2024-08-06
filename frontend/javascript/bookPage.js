@@ -32,8 +32,46 @@ async function searchBookPage(bookId) {
 }
 
 function updateBookPage(book) {
-    let bookPageCover = document.getElementById('bookPagaCover');
-    let bookId = book.id;
 
+    let bookPageCover = document.getElementById('bookPageCover');
+    let bookId = book.id;
     bookPageCover.src = `https://books.google.com/books/content?id=${bookId}&printsec=frontcover&img=1&zoom=4&edge=curl&source=gbs_api`;
+
+    console.log(book);
+
+    let title = document.getElementById('title');
+    title.textContent = book.volumeInfo.title;
+
+    let description = document.getElementById('description');
+    description.textContent = removeHTMLTags(book.volumeInfo.description);
+
+    let author = document.getElementById('author');
+    let authorList = book.volumeInfo.authors;
+    for (let i = 0; i < authorList.length; i++) {
+        let li = document.createElement('li');
+        li.textContent = authorList[i];
+        author.appendChild(li);
+    }
+
+    let publisher = document.getElementById('publisher');
+    publisher.textContent = book.volumeInfo.publisher;removeHTMLTags(book.volumeInfo.publisher);
+
+    let publisherDate = document.getElementById('publishedDate');
+    publisherDate.textContent = book.volumeInfo.publishedDate;
+
+    let pages = document.getElementById('pageCount');
+    pages.textContent = book.volumeInfo.pageCount;
+
+    let geres = document.getElementById('genres');
+    let genresList = book.volumeInfo.categories;
+    for (let i = 0; i < genresList.length; i++) {
+        let li = document.createElement('li');
+        li.textContent = genresList[i];
+        geres.appendChild(li);
+    }
+}
+
+function removeHTMLTags(htmlString) {
+    let doc = new DOMParser().parseFromString(htmlString, 'text/html');
+    return doc.body.textContent || "";
 }
