@@ -33,7 +33,7 @@ async function searchBookPage(bookId) {
 
 function updateBookPage(book) {
 
-    let bookPageCover = document.getElementById('bookPageCover');
+    let bookPageCover = document.getElementById('book-cover');
     let bookId = book.id;
     bookPageCover.src = `https://books.google.com/books/content?id=${bookId}&printsec=frontcover&img=1&zoom=4&edge=curl&source=gbs_api`;
 
@@ -56,10 +56,10 @@ function updateBookPage(book) {
     let publisher = document.getElementById('publisher');
     publisher.textContent = book.volumeInfo.publisher;removeHTMLTags(book.volumeInfo.publisher);
 
-    let publisherDate = document.getElementById('publishedDate');
+    let publisherDate = document.getElementById('published-date');
     publisherDate.textContent = book.volumeInfo.publishedDate;
 
-    let pages = document.getElementById('pageCount');
+    let pages = document.getElementById('page-count');
     pages.textContent = book.volumeInfo.pageCount;
 
     let geres = document.getElementById('genres');

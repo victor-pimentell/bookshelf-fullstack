@@ -1,4 +1,4 @@
-document.getElementById('inputField').addEventListener('keydown', function(event) {
+document.getElementById('input').addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
         let inputValue = event.target.value;
         let bookData = search(inputValue);
@@ -37,7 +37,7 @@ function updateCard(book) {
     document.querySelectorAll('.box').forEach(box => {
         const button = box.querySelector('button');
         button.addEventListener('click', () => {
-            window.location.href = "bookPage.html?id=" + encodeURIComponent(box.id);
+            window.location.href = "book-page.html?id=" + encodeURIComponent(box.id);
         });
     });
 }
