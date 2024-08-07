@@ -6,7 +6,6 @@
     --font-name-site: 'Roboto', Arial, Helvetica, sans-serif;
     --font-content: "Inter", Arial, Helvetica, sans-serif;
     --font-data-color: #767676;
-    --background-color: #eaeaea;
 }
 
 * {
@@ -17,7 +16,6 @@
 body {
     margin: 0px 5% 0px 5%;
     padding: 5px;
-    background-color: var(--background-color);
 }
 
 .main-content-container {
