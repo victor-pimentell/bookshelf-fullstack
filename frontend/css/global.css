@@ -44,6 +44,7 @@ body {
     font-family: var(--font-name-site);
     text-align: center;
     font-size: 2vw;
+    cursor: pointer;
 }
 
 .search-wrapper {
@@ -59,7 +60,7 @@ body {
 }
 
 .input-container {
-    width: 92%;
+    width: 98.5%;
     height: 74%;
     display: flex;
     align-items: center;
@@ -112,4 +113,10 @@ body {
     width: 50px;
     height: 100%;
     border-radius: 50%;
+}
+
+.book-name-wrapper h3 {
+    font-size: 12px;
+    font-family: var(--font-content);
+    font-weight: 500;
 }

@@ -13,7 +13,7 @@ document.getElementById('input').addEventListener('keydown', function(event) {
 });
 
 async function search(name) {
-    let url = `https://www.googleapis.com/books/v1/volumes?q=${name}&fields=items(id,volumeInfo/title)&maxResults=10`;
+    let url = `https://www.googleapis.com/books/v1/volumes?q=${name}&fields=items(id,volumeInfo/title)&maxResults=12`;
     try {
         let response = await fetch(url);
         let data = await response.json();
@@ -34,8 +34,8 @@ function updateCard(book) {
     }
 
     // button set up
-    document.querySelectorAll('.box').forEach(box => {
-        const button = box.querySelector('button');
+    document.querySelectorAll('.book-card').forEach(box => {
+        const button = box.querySelector('.book-button');
         button.addEventListener('click', () => {
             window.location.href = "book-page.html?id=" + encodeURIComponent(box.id);
         });
@@ -45,40 +45,37 @@ function updateCard(book) {
 function createCard(book) {
     let bookId = book.id;
 
-    const box = document.createElement('div');
-    box.classList.add('box');
-    box.id = bookId;
+    const bookCard = document.createElement('div');
+    bookCard.classList.add('book-card');
+    bookCard.id = bookId;
 
-    const imgDiv = document.createElement('div');
-    imgDiv.classList.add('img');
+    const bookButton = document.createElement('div');
+    bookButton.classList.add('book-button');
+
+    const bookCoverWrapper = document.createElement('div');
+    bookCoverWrapper.classList.add('book-cover-wrapper');
 
     const img = document.createElement('img');
     img.src = `https://books.google.com/books/content?id=${bookId}&printsec=frontcover&img=1&zoom=2&edge=curl&source=gbs_api`;
-    imgDiv.appendChild(img);
+    bookCoverWrapper.appendChild(img);
 
-    const textDiv = document.createElement('div');
-    textDiv.classList.add('text');
+    const bookNameWrapper = document.createElement('div');
+    bookNameWrapper.classList.add('book-name-wrapper');
 
     const h3 = document.createElement('h3');
     h3.textContent = book.volumeInfo.title;
-    textDiv.appendChild(h3);
+    bookNameWrapper.appendChild(h3);
 
-    const buttonDiv = document.createElement('div');
-    buttonDiv.classList.add('button');
+    bookButton.appendChild(bookCoverWrapper);
+    bookButton.appendChild(bookNameWrapper);
 
-    const button = document.createElement('button');
-    button.textContent = 'READ';
-    buttonDiv.appendChild(button);
+    bookCard.appendChild(bookButton);
 
-    box.appendChild(imgDiv);
-    box.appendChild(textDiv);
-    box.appendChild(buttonDiv);
-
-    document.getElementById('container').appendChild(box);
+    document.getElementById('book-cards-container').appendChild(bookCard);
 }
 
 function clearContainer() {
-    const container = document.getElementById('container');
+    const container = document.getElementById('book-cards-container');
     while (container.firstChild) {
         container.removeChild(container.firstChild);
     }
