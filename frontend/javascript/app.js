@@ -1,9 +1,11 @@
-document.getElementById('input').addEventListener('keydown', function(event) {
-    if (event.key === 'Enter') {
-        let inputValue = event.target.value;
-        let bookData = search(inputValue);
+document.addEventListener('DOMContentLoaded', (event) => {
+    let urlParams = new URLSearchParams(window.location.search);
+    let searchParam = urlParams.get('q');
 
-        if (bookData != null) {
+    if (searchParam != null) {
+        let bookData = search(searchParam);
+        console.log(bookData);
+        if (Object.keys(bookData).length === 0) {
             clearContainer();
             bookData.then((data) => updateCard(data));
         } else {
@@ -23,8 +25,7 @@ async function search(name) {
             return null;
         }
     } catch (error) {
-        console.error('Error:', error);
-        return null;
+        console.log('book not found!');
     }
 }
 
